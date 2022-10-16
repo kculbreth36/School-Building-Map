@@ -33,10 +33,10 @@ public class DijkstraMain {
         Node node17 = new Node("Room C17");
 
         Node node18 = new Node("Room D18");
-        Node node19 = new Node("Room d19");
+        Node node19 = new Node("Room D19");
 
 // creates list of all nodes to use when taking an input
-        List<Node> directory = Arrays.asList(node1, node2, node4, node4, node5, node6, node7, node8, node9, node10,
+        List<Node> directory = Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8, node9, node10,
                 node11, node12, node13, node14, node16, node16, node17, node18, node19);
 
 // creates connections between the nodes so that you can go between them
@@ -124,11 +124,10 @@ public class DijkstraMain {
             }
         }
 
-
 // calls the function from the dijkstraShortestPath class to get the shortest distances to every node from the starting node
         shortestPath.computeShortestPaths(startNode);
 
-// for loop to display the directions to get to the destination from the startpoint
+// for loop to display the directions to get to the destination from the start point
         System.out.print("To get there,");
         for (int i = 0; i < shortestPath.getShortestPathTo(endNode).size(); i++) {
             if (i == 0) {
@@ -137,6 +136,54 @@ public class DijkstraMain {
                 System.out.print(" then go to ");
             }
             System.out.print(shortestPath.getShortestPathTo(endNode).get(i));
+        }
+
+        System.out.println();
+        System.out.println("==========================================");
+
+
+//  PAST THIS TO GET REPEATING AND REDO DIRECTIONS
+
+        System.out.println("Arrived? Or where are you: ");
+        start = scan.nextLine();
+
+        while (!start.equals("Arrived")) {
+
+            startNode = null;
+            OUTER: for (Node s: directory) {
+                if (s.getName().equals(start)) {
+                    startNode = s;
+                    break OUTER;
+                }
+            }
+
+            System.out.println(startNode.getName());
+
+            shortestPath.computeShortestPaths(startNode);
+
+            System.out.print("To get there,");
+            for (int i = 0; i < shortestPath.getShortestPathTo(endNode).size(); i++) {
+                if (i == 0) {
+                    System.out.print(" go to ");
+                } else {
+                    System.out.print(" then go to ");
+                }
+                System.out.print(shortestPath.getShortestPathTo(endNode).get(i));
+            }
+
+            System.out.println();
+
+            System.out.println(shortestPath.getShortestPathTo(endNode));
+
+            DijkstraShortestPath dds = new DijkstraShortestPath();
+
+            dds.computeShortestPaths(startNode);
+            System.out.println(dds.getShortestPathTo(endNode));
+
+            System.out.println();
+            System.out.println("Arrived? Or where are you: ");
+            start = scan.nextLine();
+
         }
 
     }
