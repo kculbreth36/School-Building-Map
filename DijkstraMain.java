@@ -138,18 +138,17 @@ public class DijkstraMain {
             System.out.print(shortestPath.getShortestPathTo(endNode).get(i));
         }
 
-        System.out.println();
-        System.out.println("==========================================");
+        System.out.println("\n");
+        System.out.println("=================================================================");
 
-
-//  PAST THIS TO GET REPEATING AND REDO DIRECTIONS
-
+// input to check if arrived
         System.out.println("Arrived? Or where are you: ");
         start = scan.nextLine();
 
+// terminal while loop if they haven't arrived
         while (!start.equals("Arrived")) {
 
-            startNode = null;
+// sets the start node as the new input
             OUTER: for (Node s: directory) {
                 if (s.getName().equals(start)) {
                     startNode = s;
@@ -157,10 +156,17 @@ public class DijkstraMain {
                 }
             }
 
-            System.out.println(startNode.getName());
+// resets the fields of distance visited and predecessor of each node so that it can recalculate the paths
+            for (Node s: directory) {
+                s.setDistance(Integer.MAX_VALUE);
+                s.setVisited(false);
+                s.setPredecessor(null);
+            }
 
+// calls the calculation method
             shortestPath.computeShortestPaths(startNode);
 
+// for loop with an if-else statement in it to display the directions
             System.out.print("To get there,");
             for (int i = 0; i < shortestPath.getShortestPathTo(endNode).size(); i++) {
                 if (i == 0) {
@@ -170,21 +176,13 @@ public class DijkstraMain {
                 }
                 System.out.print(shortestPath.getShortestPathTo(endNode).get(i));
             }
+            
+            System.out.println("\n");
 
-            System.out.println();
-
-            System.out.println(shortestPath.getShortestPathTo(endNode));
-
-            DijkstraShortestPath dds = new DijkstraShortestPath();
-
-            dds.computeShortestPaths(startNode);
-            System.out.println(dds.getShortestPathTo(endNode));
-
-            System.out.println();
+// retakes input on location or arrived
+            System.out.println("=================================================================");
             System.out.println("Arrived? Or where are you: ");
             start = scan.nextLine();
-
         }
-
     }
 }
