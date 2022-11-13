@@ -71,12 +71,37 @@ public class DijkstraMain {
         Node node37 = new Node("Hall 400 Central");
         Node node68 = new Node("Hall 400 South");
 
+        // noes for hall 200
+        Node node156 = new Node("Hall 200 North");
+        Node node157 = new Node("Hall 200x900");
+        Node node158 = new Node("Hall 200 Central");
+        Node node159 = new Node("Hall 200x700");
+        Node node160 = new Node("Hall 200 South");
+        Node node161 = new Node("Hall 200x300");
+
         // nodes for rooms
 
         // 100 rooms
         Node node38 = new Node("Room 102");
         Node node39 = new Node("Room 104");
         Node node40 = new Node("Room 106");
+
+        // 200 rooms
+        Node node162 = new Node("Room 201");
+        Node node163 = new Node("Room 202");
+        Node node164 = new Node("Room 203");
+        Node node165 = new Node("Room 204");
+        Node node166 = new Node("Room 205");
+        Node node167 = new Node("Room 206");
+        Node node168 = new Node("Room 207");
+        Node node169 = new Node("Room 208");
+        Node node170 = new Node("Room 209");
+        Node node171 = new Node("Room 210");
+        Node node172 = new Node("Room 211");
+        Node node173 = new Node("Room 213");
+        Node node174 = new Node("Room 215");
+        Node node175 = new Node("Room 217");
+        Node node176 = new Node("Room 220");
 
         // 250 rooms
         Node node41 = new Node("Room 250");
@@ -209,7 +234,7 @@ public class DijkstraMain {
         Node node153 = new Node("Room 935");
 
 // creates list of all nodes to use when taking an input
-        List<Node> directory = Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14, node15, node16, node17, node18, node19, node20, node21, node22, node23, node24, node25, node26, node27, node28, node29, node30, node31, node32, node33, node34, node35, node36, node37, node38, node39, node40, node41, node42, node43, node44, node45, node46, node47, node48, node49, node50, node51, node52, node53, node54, node55, node56, node57, node58, node59, node60, node61, node62, node63, node64, node65, node66, node67, node68, node69, node70, node71, node72, node73, node74, node75, node76, node77, node78, node79, node80, node81, node82, node83, node84, node85, node86, node87, node88, node89, node90, node91, node92, node93, node94, node95, node96, node97, node98, node99, node100, node101, node102, node103, node104, node105, node106, node107, node108, node109, node110, node111, node112, node113, node114, node115, node116, node117, node118, node119, node120, node121, node122, node123, node124, node125, node126, node127, node128, node129, node130, node131, node132, node133, node134, node135, node136, node137, node138, node139, node140, node141, node142, node143, node144, node145, node146, node147, node148, node149, node150, node151, node152, node153, node154, node155);
+        List<Node> directory = Arrays.asList(node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11, node12, node13, node14, node15, node16, node17, node18, node19, node20, node21, node22, node23, node24, node25, node26, node27, node28, node29, node30, node31, node32, node33, node34, node35, node36, node37, node38, node39, node40, node41, node42, node43, node44, node45, node46, node47, node48, node49, node50, node51, node52, node53, node54, node55, node56, node57, node58, node59, node60, node61, node62, node63, node64, node65, node66, node67, node68, node69, node70, node71, node72, node73, node74, node75, node76, node77, node78, node79, node80, node81, node82, node83, node84, node85, node86, node87, node88, node89, node90, node91, node92, node93, node94, node95, node96, node97, node98, node99, node100, node101, node102, node103, node104, node105, node106, node107, node108, node109, node110, node111, node112, node113, node114, node115, node116, node117, node118, node119, node120, node121, node122, node123, node124, node125, node126, node127, node128, node129, node130, node131, node132, node133, node134, node135, node136, node137, node138, node139, node140, node141, node142, node143, node144, node145, node146, node147, node148, node149, node150, node151, node152, node153, node154, node155, node156, node157, node158, node159, node160, node161, node162, node163, node164, node165, node166, node167, node168, node169, node170, node171, node172, node173, node174, node175, node176);
 
 // creates connections between the nodes so that you can go between them
         // entrance paths
@@ -231,6 +256,76 @@ public class DijkstraMain {
         // path of hall100 to room 106
         node6.addNeighbour(new Hall(2, node6, node40));
         node40.addNeighbour(new Hall(2, node40, node6));
+
+        // path of hall 200N to 200x900
+        node156.addNeighbour(new Hall(5, node156, node157));
+        node157.addNeighbour(new Hall(5, node157, node156));
+        // path of hall 200x900 to 900W
+        node157.addNeighbour(new Hall(5, node157, node17));
+        node17.addNeighbour(new Hall(5, node17, node157));
+        // path of hall 200x900 to 200 central
+        node157.addNeighbour(new Hall(5, node157, node158));
+        node158.addNeighbour(new Hall(5, node158, node157));
+        //path of hall 200C to 200x700
+        node158.addNeighbour(new Hall(5, node158, node159));
+        node159.addNeighbour(new Hall(5, node159, node158));
+        // path of hall 200x700 to 700W
+        node159.addNeighbour(new Hall(5, node159, node35));
+        node35.addNeighbour(new Hall(5, node35, node159));
+        // path of  hall 200x700 to 200S
+        node159.addNeighbour(new Hall(5, node159, node160));
+        node160.addNeighbour(new Hall(5, node160, node159));
+        // path of hall 200S to 200x300
+        node160.addNeighbour(new Hall(5, node160, node161));
+        node161.addNeighbour(new Hall(5, node161, node160));
+        // path of hall 200x300 to 300W
+        node161.addNeighbour(new Hall(5, node161, node30));
+        node30.addNeighbour(new Hall(5, node30, node161));
+        // room 201
+        node161.addNeighbour(new Hall(2, node161, node162));
+        node162.addNeighbour(new Hall(2, node162, node161));
+        // room 202
+        node161.addNeighbour(new Hall(2, node161, node163));
+        node163.addNeighbour(new Hall(2, node163, node161));
+        // room 203
+        node161.addNeighbour(new Hall(2, node161, node164));
+        node164.addNeighbour(new Hall(2, node164, node161));
+        // room 204
+        node160.addNeighbour(new Hall(2, node160, node165));
+        node165.addNeighbour(new Hall(2, node165, node160));
+        // room 205
+        node160.addNeighbour(new Hall(2, node160, node166));
+        node166.addNeighbour(new Hall(2, node166, node160));
+        // room 206
+        node160.addNeighbour(new Hall(2, node160, node167));
+        node167.addNeighbour(new Hall(2, node167, node160));
+        // room 207
+        node160.addNeighbour(new Hall(2, node160, node168));
+        node168.addNeighbour(new Hall(2, node168, node160));
+        // room 208
+        node160.addNeighbour(new Hall(2, node160, node169));
+        node169.addNeighbour(new Hall(2, node169, node160));
+        // room 209
+        node160.addNeighbour(new Hall(2, node160, node170));
+        node170.addNeighbour(new Hall(2, node170, node160));
+        // room 210
+        node160.addNeighbour(new Hall(2, node160, node171));
+        node171.addNeighbour(new Hall(2, node171, node160));
+        // room 211
+        node160.addNeighbour(new Hall(2, node160, node172));
+        node172.addNeighbour(new Hall(2, node172, node160));
+        // room 213
+        node158.addNeighbour(new Hall(2, node158, node173));
+        node173.addNeighbour(new Hall(2, node173, node158));
+        // room 215
+        node158.addNeighbour(new Hall(2, node158, node174));
+        node174.addNeighbour(new Hall(2, node174, node158));
+        // room 217
+        node156.addNeighbour(new Hall(2, node156, node175));
+        node175.addNeighbour(new Hall(2, node175, node156));
+        // room 220
+        node156.addNeighbour(new Hall(2, node156, node176));
+        node176.addNeighbour(new Hall(2, node176, node156));
 
         // path of hall250x700 to hall 250
         node32.addNeighbour(new Hall(5, node32, node31));
