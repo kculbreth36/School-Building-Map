@@ -1,48 +1,42 @@
-School-Building-Map
+# School-Building-Map
 
-About the Project
+## About the Project
+The School-Building-Map application utilizes Java to implement Dijkstra's algorithm for navigating a complex school layout. It models the school's infrastructure as a graph where halls and rooms are nodes, allowing users to input start and end locations to receive the shortest path for navigation.
 
-The School-Building-Map is a Java application that helps users navigate through a complex school layout using Dijkstra's algorithm to find the shortest path between locations. The application models the school's halls and rooms as nodes in a graph, allowing users to input their current location and desired destination to receive step-by-step navigation instructions.
+## Features
+- **Dynamic Pathfinding**: Implements Dijkstra's shortest path algorithm to navigate between any two points.
+- **User Interaction**: Users can enter their current location and destination via the console to receive navigation directions.
+- **Expandable Map Structure**: The node and hall structure can be modified to adapt to different school layouts or expansions.
 
-Features
+## Getting Started
 
-Dynamic Pathfinding: Utilizes Dijkstra's shortest path algorithm to find the quickest route between two points in the school.
-Interactive User Input: Users can specify start and end points dynamically through the console.
-Scalable Map Model: Easily modifiable node and hall structure to represent different or expanded school layouts.
-Getting Started
+### Prerequisites
+- Java SE Development Kit (JDK) 8 or newer.
 
-Prerequisites
-Java SE Development Kit (JDK) installed on your machine. The project is compatible with JDK 8 and above.
-Basic understanding of command line operations for compiling and running Java applications.
-Compilation and Running
-Clone the Repository
-If you have git installed, you can clone the repository using:
-bash
-Copy code
-git clone https://github.com/<your-username>/School-Building-Map.git
-Alternatively, download the ZIP file and extract it.
-Navigate to the Project Directory
+### Setup and Execution
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/kculbreth36/School-Building-Map.git
+Compile the Java Program
+Navigate to the project directory and compile the Java files.
 bash
 Copy code
 cd School-Building-Map
-Compile the Java Code
-Make sure you are in the directory containing the DijkstraMain.java file.
-bash
-Copy code
 javac DijkstraMain.java
-Run the Program
-After compiling, you can run the program using:
+Run the Application
+Execute the compiled Java program.
 bash
 Copy code
 java DijkstraMain
 Usage
 
-After running the application, follow the on-screen prompts to enter your current location and destination within the school. The program will display the shortest path instructions step by step in the console.
+Follow the console prompts to input your starting point and destination within the school. The program will calculate and display the shortest path step by step.
 
 Contributing
 
-Contributions are welcome. If you have suggestions on how to improve the map or extend the application, please fork the repository and submit a pull request.
+Feel free to fork the project and contribute by extending the map, optimizing the algorithm, or improving the user interface. Submit pull requests with your proposed changes.
 
 License
 
-This project is open-sourced under the MIT license. See the LICENSE file for more details.
+Distributed under the MIT License. See LICENSE for more information.
